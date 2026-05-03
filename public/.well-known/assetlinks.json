@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.jobservo.app",
+      "sha256_cert_fingerprints": [
+        "9A:5B:44:1F:FC:31:A4:9F:D9:7A:F9:31:3B:3C:00:07:B4:5A:22:B0:C0:5E:B1:17:0B:1B:41:5E:0E:35:EF:C4"
+      ]
+    }
+  }
+]
