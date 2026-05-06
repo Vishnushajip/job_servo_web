@@ -60,13 +60,29 @@
         <div class="spinner"></div>
         <h1>Opening app...</h1>
         <p>We're taking you to the JOBSERVOO app. If you don't have it installed, you'll be redirected to the Play Store in a moment.</p>
+        <a id="app-button" class="button" style="display: none; margin-top: 1.5rem; text-decoration: none; background: var(--primary-color); color: white; padding: 10px 20px; border-radius: 10px; font-weight: 600;">Open in JOBSERVOO</a>
     </div>
 
     <script>
-        // Redirect to Play Store after 2 seconds
+        const path = window.location.pathname;
+        const button = document.getElementById('app-button');
+        
+        if (path && path !== '/') {
+            const appUrl = "jobservo:/" + path + window.location.search;
+            
+            // Set the manual button link
+            button.href = appUrl;
+            button.style.display = 'inline-block';
+            
+            // Try to open the app automatically
+            window.location.href = appUrl;
+        }
+
+        // Redirect to Play Store after a longer delay if app doesn't open
         setTimeout(function() {
+            // Only redirect if they haven't successfully opened the app (we can't know for sure, but this is a fallback)
             window.location.href = "https://play.google.com/store/apps/details?id=com.jobservo.app";
-        }, 2000);
+        }, 3500);
     </script>
 </body>
 </html>
