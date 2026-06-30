@@ -78,10 +78,14 @@
             window.location.href = appUrl;
         }
 
-        // Redirect to Play Store after a longer delay if app doesn't open
+        // Redirect to Web or Play Store after a longer delay if app doesn't open
         setTimeout(function() {
             // Only redirect if they haven't successfully opened the app (we can't know for sure, but this is a fallback)
-            window.location.href = "https://play.google.com/store/apps/details?id=com.jobservo.app";
+            if (path && path.startsWith('/job/')) {
+                window.location.href = "https://jobservoo.web.app" + path + window.location.search;
+            } else {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.jobservo.app";
+            }
         }, 3500);
     </script>
 </body>
